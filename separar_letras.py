@@ -36,9 +36,13 @@ for arquivo in arquivos:
         x, y, largura, altura = retangulo
         imagem_letra = imagem[y-2:y+altura+2, x-2:x+largura+2] #adicionando +2 e -2 para aumentar a folga do retângulo
         i += 1
-        nome_arquivo = os.path.basename(arquivo).replace('.png', f'letra{i}.png')
-        cv2.imwrite(f'letras/{nome_arquivo}', imagem_letra)
-        cv2.rectangle(imagem_final, (x-2, y-2), (x+largura+2, y+altura+2), (0, 255, 0), 1) #imagem, ponto inicial, ponto final, cor da linha
+        height, width = imagem_letra.shape
+        if (height > 0) and (width > 0):
+            nome_arquivo = os.path.basename(arquivo).replace('.png', f'letra{i}.png')
+            cv2.imwrite(f'letras/{nome_arquivo}', imagem_letra)
+            cv2.rectangle(imagem_final, (x - 2, y - 2), (x + largura + 2, y + altura + 2), (0, 255, 0), 1)  # imagem, ponto inicial, ponto final, cor da linha
+        else:
+            print("Imagem vazia")
 
     nome_arquivo = os.path.basename(arquivo)
     cv2.imwrite(f'identificado/{nome_arquivo}', imagem_final)
