@@ -37,6 +37,10 @@ for arquivo in arquivos:
         imagem_letra = imagem[y-2:y+altura+2, x-2:x+largura+2] #adicionando +2 e -2 para aumentar a folga do retângulo
         i += 1
         height, width = imagem_letra.shape
+
+        print("Método boundingRect: ", largura, altura)
+        print("Método shape: ", width, height)
+
         if (height > 0) and (width > 0):
             nome_arquivo = os.path.basename(arquivo).replace('.png', f'letra{i}.png')
             cv2.imwrite(f'letras/{nome_arquivo}', imagem_letra)
