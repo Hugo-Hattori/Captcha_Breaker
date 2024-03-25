@@ -74,3 +74,20 @@ crop each individual letter and save them in different image files.</p>
 ![img.png](img.png)
 
 </div>
+
+## 4) Manual Categorization
+
+<p>This step consists in manually separate every images in different folders for a total of
+26 folders (1 for each letter). With this, the final database is ready to be used for the AI Training.</p>
+
+![img_1.png](img_1.png)
+
+## 5) Training Artificial Intelligence Model and Solving CAPTCHAs
+
+<p>In "treinar_modelo.py" we utilize scikit-learn and Keras to create and train an AI Model by using
+the previously mentioned database and a Neural Network Algorithm.</p>
+
+![img_2.png](img_2.png)
+
+<p>With the "modelo_treinado.hdf5" AI Model trained we can finally use it to solve CAPTCHAs. 
+"resolver_captcha.py" is an example of how to utilize the trained model.</p>
